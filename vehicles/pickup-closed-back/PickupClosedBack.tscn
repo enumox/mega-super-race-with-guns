@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://vehicles/BaseVehicle.tscn" type="PackedScene" id=1]
+[ext_resource path="res://vehicles/pickup-closed-back/mesh/PickupClosedBackMesh.tscn" type="PackedScene" id=2]
+
+[sub_resource type="BoxShape" id=1]
+
+extents = Vector3( 1, 0.535807, 2.65476 )
+
+[node name="PickupClosedBack" instance=ExtResource( 1 )]
+acceleration = 0.5
+steer_speed = 1.0
+steer_force = 90
+speed = 150
+
+[node name="CollisionShape" parent="." index="0"]
+shape = SubResource( 1 )
+
+[node name="PickupClosedBackMesh" parent="Mesh" index="0" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.16019, 0 )
+
+[node name="SuspensionsContainer" parent="." index="2"]
+editor/display_folded = false
+
+[node name="FrontRight" parent="SuspensionsContainer" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.5, 1.77493 )
+
+[node name="FrontLeft" parent="SuspensionsContainer" index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.5, 1.77493 )
+
+[node name="ForcePosition" parent="." index="3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0255201, 1.29095 )
+
+[node name="WeaponMounting" parent="." index="4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.19497, -1.16058 )
+
