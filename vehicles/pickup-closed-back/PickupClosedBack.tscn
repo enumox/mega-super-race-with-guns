@@ -7,10 +7,11 @@
 
 extents = Vector3( 1, 0.535807, 2.65476 )
 
-[node name="PickupClosedBack" index="0" instance=ExtResource( 1 )]
-acceleration = 0.5
-steer_speed = 1.0
-steer_force = 90
+[node name="PickupClosedBack" instance=ExtResource( 1 )]
+acceleration = 2.0
+steer_speed = 0.1
+tyres_grip = 10.0
+steer_force = 250
 speed = 150
 
 [node name="CollisionShape" parent="." index="0"]

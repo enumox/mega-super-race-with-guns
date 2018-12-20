@@ -69,7 +69,9 @@ easing = 0.0796601
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.23725, -9 )
 acceleration = 2.0
 steer_speed = 0.1
+tyres_grip = 10.0
 steer_force = 250
+speed = 150
 current_camera = NodePath("../Camera")
 
 [node name="WeaponBox" parent="." instance=ExtResource( 3 )]

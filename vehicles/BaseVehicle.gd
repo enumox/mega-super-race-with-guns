@@ -3,8 +3,8 @@ class_name BaseVehicle
 
 export(float, 0.1, 10.0) var acceleration : float
 export(float, 0.1, 10.0) var steer_speed : float = 0.2
+export(float, 0.1, 50.0) var tyres_grip : float
 export var steer_force : int = 25
-export(float, 0.1, 10.0) var wheels_friction : float
 export var speed : int
 export var current_camera : NodePath
 
@@ -22,14 +22,16 @@ func _ready() -> void:
 func _physics_process(delta : float) -> void:
 	var gas = int(Input.is_action_pressed("move_forward")) - int(Input.is_action_pressed("move_backward"))
 	current_gas = lerp(current_gas, gas, acceleration * delta)
-	
+	print(current_gas)
 	var steer = int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left"))
 	current_steer = lerp(current_steer, steer_force * -steer, steer_speed)
 	
 	if current_gas > 0.01: #Only steer when moving like a real car
 		add_torque(Vector3(0, 1, 0) * current_steer * steer_speed)
 	add_force(Vector3(0, 0, 1).rotated(Vector3(0, 1, 0), rotation.y) * speed * current_gas,\
-	 force_position.translation.rotated(Vector3(0, 1, 0), rotation.y))
+		force_position.translation.rotated(Vector3(0, 1, 0), rotation.y))
+	
+	add_force(Vector3(-1, 0, 0).rotated(Vector3(0, 1, 0), rotation.y) * tyres_grip * steer * abs(current_gas), Vector3())
 	
 	for suspension in suspensions:
 		if suspension.is_colliding():
