@@ -57,7 +57,7 @@ material/0 = null
 shape = SubResource( 5 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.745958, 0.665992, 0, -0.665992, 0.745958, 0, 12.4649, 13.1802 )
+transform = Transform( 1, 0, 0, 0, 0.394607, 0.91885, 0, -0.91885, 0.394607, 0, 31.4649, 21.1802 )
 size = 50.0
 
 [node name="PickupClosedBack" parent="." instance=ExtResource( 1 )]

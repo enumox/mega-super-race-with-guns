@@ -21,9 +21,9 @@ func _physics_process(delta : float) -> void:
 		return
 	for suspension in get_children():
 		if suspension.is_colliding():
-			suspension.get_child(1).global_transform.origin = suspension.get_collision_point()
+			suspension.get_child(0).global_transform.origin = suspension.get_collision_point()
 		else:
-			suspension.get_child(1).global_transform.origin = suspension.global_transform.origin + suspension.cast_to
+			suspension.get_child(0).global_transform.origin = suspension.global_transform.origin + suspension.cast_to
 
 func set_length(new_value : float) -> void:
 	length = new_value
